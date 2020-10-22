@@ -81,6 +81,11 @@ def main(input_file, output_file, bearer_token):
     df = df[['id', 'date', 'time', 'timezone', 'geo', 'usr_location', 'text']]
     df.to_csv(output_file)
 
+    counts = df.count()
+    print("Total tweets: {}".format(counts["id"]))
+    print("Non-empty geo: {}".format(counts["geo"]))
+    print("Non-empty usr_location: {}".format(counts["usr_location"]))
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input_file', help='input file of tweets')
