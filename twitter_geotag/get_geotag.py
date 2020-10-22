@@ -1,3 +1,7 @@
+"""
+Sample usage: python3 get_geotag.py -i sample_tweets.txt -o sample_output.csv
+"""
+
 import pandas as pd
 import requests
 import argparse

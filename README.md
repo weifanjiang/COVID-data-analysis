@@ -21,4 +21,19 @@ information on worldwide locations; the [lockdown date US](lockdown_dates/lockdo
 file contains the information for US states only.
 
 ## twitter geotag
-Fetch the geolocation tag with each tweet based on the twitter id
+Fetch the geolocation-related metadata with each tweet, including:
+- `geo`: the geotag if user supplied one when sending the tweet
+- `usr_location`: The location set by the user on user profile
+
+A sample output can be found [here](twitter_geotag/sample_output.csv).
+
+Note that a twitter developer account is needed to run the script. A Bearer token
+needs to be supplied either in command line or in `twitter_geotag/twitter_authentication`
+in form of:
+```
+API key: XXX
+API key secret: XXX
+Bearer token: XXX
+```
+Instructions on setting up twitter developer account and authentication
+is [here](https://developer.twitter.com/en/docs/authentication/oauth-1-0a).
