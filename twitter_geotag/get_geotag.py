@@ -12,10 +12,10 @@ def parse_tweet(tweet_str):
     tokens = tweet_str.split(" ")
     ret = dict()
     ret["id"] = tokens[0]
-    ret["date"] = tokens[1]
-    ret["time"] = tokens[2]
-    ret["timezone"] = tokens[3]
-    ret["usr_id"] = tokens[4]
+    ret["date"] = tokens[1].rstrip(" ")
+    ret["time"] = tokens[2].rstrip(" ")
+    ret["timezone"] = tokens[3].rstrip(" ")
+    ret["usr_id"] = tokens[4].rstrip(" ")
     ret["text"] = " ".join(tokens[5:]).replace("\n", "")
     return ret
 
@@ -31,7 +31,10 @@ def twitter_status_lookup(unparsed, bearer_token):
 
     id_to_meta = dict()
     for meta in res_json:
-        id_to_meta[meta["id"]] = {"geo": meta["geo"], "usr_location": meta.get("user", dict()).get("location", None)}
+        geo = meta["geo"]
+        if geo is not None:
+            geo = geo.rstrip(" ")
+        id_to_meta[meta["id"]] = {"geo": geo, "usr_location": meta.get("user", dict()).get("location", None)}
 
     parsed_with_meta = list()
     for i in range(len(parsed)):
