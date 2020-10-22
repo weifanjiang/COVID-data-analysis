@@ -16,7 +16,7 @@ def parse_tweet(tweet_str):
     ret["time"] = tokens[2]
     ret["timezone"] = tokens[3]
     ret["usr_id"] = tokens[4]
-    ret["text"] = " ".join(tokens[5:])
+    ret["text"] = " ".join(tokens[5:]).replace("\n", "")
     return ret
 
 def twitter_status_lookup(unparsed, bearer_token):
