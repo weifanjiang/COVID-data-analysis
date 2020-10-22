@@ -19,3 +19,6 @@ event is contained:
 The [lockdown date](lockdown_dates/lockdown_date.csv) file contains the
 information on worldwide locations; the [lockdown date US](lockdown_dates/lockdown_date_us.csv)
 file contains the information for US states only.
+
+## twitter geotag
+Fetch the geolocation tag with each tweet based on the twitter id
